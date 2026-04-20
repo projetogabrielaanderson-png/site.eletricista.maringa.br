@@ -3,6 +3,11 @@
   AddType application/javascript .mjs
 </IfModule>
 
+# Force MIME type for all .js files
+<FilesMatch "\.js$">
+    ForceType application/javascript
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /

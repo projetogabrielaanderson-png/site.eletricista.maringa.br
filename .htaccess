@@ -1,0 +1,20 @@
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType application/javascript .mjs
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve index.html for directory requests
+  DirectoryIndex index.html
+
+  # Redirect non-trailing slash to trailing slash (matches Next.js config)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteRule ^(.*)$ $1/ [L,R=301]
+
+  # Handle 404
+  ErrorDocument 404 /404.html
+</IfModule>

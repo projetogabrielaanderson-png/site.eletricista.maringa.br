@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://site.eletricista.maringa.br/sitemap.xml
